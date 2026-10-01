@@ -1,5 +1,8 @@
 import React from "react";
 
+const COMPANY_MOBILE = "9870072217";
+const COMPANY_EMAIL = "rbhosle412@gmail.com";
+
 export default function CompanyHeader({ company, setCompany }) {
   const handleChange = (field) => (e) =>
     setCompany({ ...company, [field]: e.target.value });
@@ -29,19 +32,15 @@ export default function CompanyHeader({ company, setCompany }) {
       <div className="company-contact-row">
         <span>
           Mobile No. :{" "}
-          <input
-            className="inline-input"
-            value={company.mobile}
-            onChange={handleChange("mobile")}
-          />
+          <span className="inline-input inline-contact-value">
+            {COMPANY_MOBILE}
+          </span>
         </span>
         <span>
           Email :{" "}
-          <input
-            className="inline-input inline-input-wide"
-            value={company.email}
-            onChange={handleChange("email")}
-          />
+          <span className="inline-input inline-input-wide inline-contact-value">
+            {COMPANY_EMAIL}
+          </span>
         </span>
       </div>
     </div>

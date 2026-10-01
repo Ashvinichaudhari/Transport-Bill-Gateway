@@ -26,8 +26,6 @@ export default function LogisticsInvoice() {
     specialist:
       "Sepecilist In : Export, Import Container Handing & ODC Consignment",
     address: "UL-2, B-8, R-102, UANNATI, SEC-19, ULVE. 410206",
-    mobile: "9870072217",
-    email: "rbhosle412@gmail.com",
   });
 
   const [customer, setCustomer] = useState({
@@ -62,6 +60,11 @@ export default function LogisticsInvoice() {
     [rows]
   );
 
+  const pendingAmount = useMemo(
+    () => (amountTotal - (parseFloat(received) || 0)).toFixed(2),
+    [amountTotal, received]
+  );
+
   const amountWords = useMemo(() => numberToWords(amountTotal), [amountTotal]);
 
   return (
@@ -87,6 +90,7 @@ export default function LogisticsInvoice() {
           amountTotal={amountTotal.toFixed(2)}
           received={received}
           setReceived={setReceived}
+          pendingAmount={pendingAmount}
         />
 
         <AmountInWords words={amountWords} />

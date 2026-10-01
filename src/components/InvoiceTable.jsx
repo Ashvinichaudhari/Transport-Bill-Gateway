@@ -90,6 +90,7 @@ export default function InvoiceTable({ rows, setRows }) {
                   className="cell-input cell-center"
                   value={row.qty}
                   onChange={handleCellChange(row.id, "qty")}
+                  onWheel={(event) => event.currentTarget.blur()}
                 />
               </td>
               <td>
@@ -98,6 +99,7 @@ export default function InvoiceTable({ rows, setRows }) {
                   className="cell-input cell-right"
                   value={row.rate}
                   onChange={handleCellChange(row.id, "rate")}
+                  onWheel={(event) => event.currentTarget.blur()}
                 />
               </td>
               <td className="cell-right">{row.amount}</td>
